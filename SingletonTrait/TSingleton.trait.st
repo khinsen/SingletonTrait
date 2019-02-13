@@ -1,5 +1,8 @@
+"
+I am a trait that makes a class into a singleton whose unique instance is accessed via the method TSingleton>>uniqueInstance.
+"
 Trait {
-	#name : #SingletonTrait,
+	#name : #TSingleton,
 	#classInstVars : [
 		'uniqueInstance'
 	],
@@ -7,18 +10,18 @@ Trait {
 }
 
 { #category : #'instance creation' }
-SingletonTrait classSide >> new [
+TSingleton classSide >> new [
 	self error: 'Use #uniqueInstance'
 ]
 
 { #category : #'instance creation' }
-SingletonTrait classSide >> reset [
+TSingleton classSide >> reset [
 	<script>
 	uniqueInstance := nil.
 
 ]
 
 { #category : #accessing }
-SingletonTrait classSide >> uniqueInstance [
+TSingleton classSide >> uniqueInstance [
 	^ uniqueInstance ifNil: [ uniqueInstance := super new ]
 ]
