@@ -23,5 +23,7 @@ TSingleton classSide >> reset [
 
 { #category : #accessing }
 TSingleton classSide >> uniqueInstance [
+	self isAbstract
+		ifTrue: [ self error: 'I''m an abstract class, use one of my subclasses instead.' ].
 	^ uniqueInstance ifNil: [ uniqueInstance := super new ]
 ]
